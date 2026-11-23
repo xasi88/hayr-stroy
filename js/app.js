@@ -1,6 +1,6 @@
 // Экран калькулятора: читает поля, считает через calc.js, обновляет итог и кнопку WhatsApp.
-import { UROVNI, FORMY, ploshchad, raschet, chislo, zayavka, ssylka, rub, tys, WHATSAPP } from './calc.js';
-import { VERSII } from './version.js';
+import { UROVNI, FORMY, ploshchad, raschet, chislo, zayavka, ssylka, rub, tys, WHATSAPP } from './calc.js?v=0.3';
+import { VERSII } from './version.js?v=0.3';
 
 const $ = (id) => document.getElementById(id);
 const sost = { rezhim: 'dom', forma: 'dva', uroven: 'optimal' };
