@@ -7,7 +7,9 @@
   --liniya: #dedbd6;
   --fon: #f5f3f0;
   --belyj: #ffffff;
-  --wa: #1fa855;             /* только знак WhatsApp */
+  --chernyj: #0e0f11;        /* фон видео-разделов */
+  --krivaya: cubic-bezier(0.22, 1, 0.36, 1);
+  --wa: #1fa855;            /* только знак WhatsApp */
 
   --shrift: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   --r-tekst: 1rem;

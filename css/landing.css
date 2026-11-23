@@ -1,0 +1,129 @@
+/* Лендинг вокруг калькулятора. Цвета и размеры: css/tokens.css */
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+body { background: var(--fon); }
+main { max-width: none; padding: 0; }
+h1, h2, h3 { text-wrap: balance; }
+p, li, summary { text-wrap: pretty; }
+
+.k-soderzhaniyu { position: absolute; left: 8px; top: -60px; z-index: 20; padding: 12px 16px; background: var(--belyj); border-radius: 10px; }
+.k-soderzhaniyu:focus { top: 8px; }
+
+.shapka { position: fixed; inset: 0 0 auto; z-index: 10; background: transparent; transition: background 0.3s; }
+.shapka.temnaya { background: rgb(22 23 26 / 0.92); }
+
+.nadzag { font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--krasnyj); margin-bottom: 12px; }
+.podzag { font-size: 18px; color: var(--seryj); margin-top: 16px; max-width: 560px; }
+
+.knopka-glavnaya {
+  display: inline-flex; align-items: center; justify-content: center; gap: 12px;
+  min-height: 56px; padding: 0 32px; margin-top: 24px; border-radius: 12px;
+  background: var(--krasnyj); color: var(--belyj); font-weight: 700; font-size: 16px; text-decoration: none;
+  transition: background 0.25s, transform 0.5s var(--krivaya);
+}
+.knopka-glavnaya:hover { background: var(--krasnyj-temnee); transform: translateY(-2px); }
+.knopka-glavnaya:active { transform: scale(0.98); }
+
+/* Первый экран */
+.geroj { position: relative; min-height: 100svh; display: grid; align-items: end; overflow: hidden; background: var(--chernyj); color: var(--belyj); }
+.geroj-media { position: absolute; inset: 0; will-change: transform; }
+.geroj-media video { width: 100%; height: 100%; object-fit: cover; }
+.geroj::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgb(14 15 17 / 0.92) 8%, rgb(14 15 17 / 0.35) 55%, rgb(14 15 17 / 0.5)); }
+.geroj-tekst { position: relative; z-index: 1; padding: 96px 16px 48px; max-width: 680px; will-change: transform, opacity; }
+.geroj h1 { font-size: 36px; line-height: 1.1; letter-spacing: -0.02em; font-weight: 800; }
+.geroj .podzag { color: #d6d7db; }
+.geroj .nadzag { color: #ff6a63; }
+.dokaz { margin-top: 16px; font-size: 14px; color: #c9cad0; }
+.dokaz b { color: var(--belyj); }
+
+/* Цифры */
+.cifry { background: var(--chernyj); color: var(--belyj); padding: 48px 16px; }
+.ryad { max-width: 1080px; margin: 0 auto; display: grid; gap: 24px; }
+.ryad p { border-top: 2px solid var(--krasnyj); padding-top: 16px; }
+.ryad b { display: block; font-size: 48px; line-height: 1; font-weight: 800; font-variant-numeric: tabular-nums; }
+.ryad span { display: block; margin-top: 8px; color: #c9cad0; }
+
+/* Общие разделы */
+.blok { max-width: 1080px; margin: 0 auto; padding: 80px 16px 0; }
+.blok h2, .kak h2 { font-size: 30px; line-height: 1.15; letter-spacing: -0.01em; max-width: 680px; }
+.bolshoj { font-size: 36px; line-height: 1.1; letter-spacing: -0.02em; }
+
+.pochemu { display: grid; gap: 32px; align-items: center; }
+.pochemu-tekst p:not(.nadzag) { margin-top: 16px; font-size: 18px; color: var(--seryj); }
+.pochemu-video, .ramka { border-radius: var(--radius); overflow: hidden; background: var(--grafit); }
+.pochemu-video video { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+
+.kartochki { list-style: none; padding: 0; margin-top: 32px; display: grid; gap: 12px; }
+.kartochki li { background: var(--belyj); border: 1px solid var(--liniya); border-radius: var(--radius); padding: 24px; color: var(--seryj); }
+.kartochki b { display: block; font-size: 20px; color: var(--grafit); margin-bottom: 8px; }
+.kartochki b::before { content: ""; display: block; width: 32px; height: 4px; background: var(--krasnyj); border-radius: 2px; margin-bottom: 16px; }
+
+/* Калькулятор внутри лендинга */
+.raschet { margin-top: 80px; padding: 80px 16px; background: var(--chernyj); color: var(--belyj); }
+.raschet-vnutri { max-width: 640px; margin: 0 auto; }
+.raschet .podzag { color: #c9cad0; }
+.raschet .shag { color: var(--grafit); }
+.shag h3 { font-size: 20px; display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+.shag h3 i { font-style: normal; display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: var(--krasnyj); color: var(--belyj); font-size: 14px; }
+.raschet .itog { background: var(--grafit); border: 1px solid #2e3036; }
+.itog .knopka-glavnaya { width: 100%; }
+.itog .knopka-glavnaya svg { width: 24px; height: 24px; }
+
+/* Объекты */
+.obekty .lenta { margin-top: 32px; grid-auto-columns: 72%; }
+.obekty figure { background: transparent; box-shadow: none; border-radius: 0; }
+.ramka video, .ramka img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; display: block; }
+.obekty figcaption { padding: 12px 4px 0; font-size: 18px; }
+
+/* Как работаем */
+.kak { position: relative; margin-top: 80px; min-height: 100svh; display: grid; align-items: center; overflow: hidden; color: var(--belyj); background: var(--chernyj); }
+.kak-media { position: absolute; inset: 0; }
+.kak-media video { width: 100%; height: 100%; object-fit: cover; will-change: transform; }
+.kak::after { content: ""; position: absolute; inset: 0; background: rgb(14 15 17 / 0.68); }
+.kak-tekst { position: relative; z-index: 1; width: 100%; max-width: 1080px; margin: 0 auto; padding: 80px 16px; }
+.kak ol { list-style: none; padding: 0; margin-top: 32px; display: grid; gap: 24px; counter-reset: shag; }
+.kak li { counter-increment: shag; padding-left: 64px; position: relative; color: #d6d7db; max-width: 520px; }
+.kak li::before { content: counter(shag); position: absolute; left: 0; top: 0; width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: var(--krasnyj); color: var(--belyj); font-weight: 800; }
+.kak li b { display: block; font-size: 20px; color: var(--belyj); margin-bottom: 4px; }
+
+/* Вопросы */
+.voprosy details { border-bottom: 1px solid var(--liniya); }
+.voprosy h2 { margin-bottom: 24px; }
+.voprosy summary { min-height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 16px; cursor: pointer; font-weight: 700; font-size: 18px; list-style: none; padding: 12px 0; }
+.voprosy summary::-webkit-details-marker { display: none; }
+.voprosy summary::after { content: "+"; font-size: 24px; color: var(--krasnyj); transition: transform 0.3s var(--krivaya); }
+.voprosy details[open] summary::after { transform: rotate(45deg); }
+.voprosy details p { padding: 0 0 16px; color: var(--seryj); max-width: 680px; }
+
+/* Финал */
+.final { max-width: 1080px; margin: 0 auto; padding: 80px 16px 48px; }
+.final .adresa { margin-top: 40px; }
+.podval { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding: 24px 16px 120px; max-width: 1080px; margin: 0 auto; font-size: 14px; color: var(--seryj); }
+.podval a { color: inherit; min-height: 44px; display: inline-flex; align-items: center; }
+
+/* Нижняя кнопка: только после первого экрана */
+.niz { transform: translateY(110%); transition: transform 0.5s var(--krivaya); }
+.niz.vidna { transform: none; }
+
+/* До загрузки скрипта и без него всё видно; со скриптом появляется при прокрутке */
+.dvizh [data-r] { will-change: transform, opacity; }
+
+@media (min-width: 768px) {
+  .geroj h1 { font-size: 60px; }
+  .geroj-tekst { padding: 96px 48px 80px; }
+  .ryad { grid-template-columns: repeat(3, 1fr); }
+  .ryad b { font-size: 60px; }
+  .blok h2, .kak h2 { font-size: 48px; }
+  .bolshoj { font-size: 48px; }
+  .pochemu { grid-template-columns: 1.2fr 1fr; gap: 64px; }
+  .kartochki { grid-template-columns: repeat(2, 1fr); }
+  .obekty .lenta { grid-auto-columns: 40%; }
+}
+@media (min-width: 1100px) {
+  .geroj { grid-template-columns: 1fr 1fr; align-items: center; }
+  .geroj-media { inset: 0 0 0 auto; width: 46%; }
+  .geroj::after { background: linear-gradient(to right, var(--chernyj) 54%, rgb(14 15 17 / 0.1) 75%); }
+  .geroj h1 { font-size: 72px; }
+  .kartochki { grid-template-columns: repeat(4, 1fr); }
+  .obekty .lenta { grid-auto-flow: row; grid-template-columns: repeat(4, 1fr); overflow: visible; margin: 32px 0 0; padding: 0; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }

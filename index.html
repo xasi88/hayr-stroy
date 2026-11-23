@@ -4,96 +4,177 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
-<title>Сколько стоит крыша · Хайр-Строй</title>
-<meta name="description" content="Посчитайте кровлю под ключ за минуту. Хайр-Строй, Грозный и Гудермес.">
-<meta name="theme-color" content="#1c1d21">
+<title>Крыша под ключ в Чечне · Хайр-Строй</title>
+<meta name="description" content="Кровля под ключ от Хайр-Строй. Посчитайте цену крыши за минуту по ценам наших объектов. Грозный и Гудермес.">
+<meta property="og:title" content="Крыша под ключ. Цену узнаете за минуту">
+<meta property="og:description" content="Хайр-Строй: кровля и фасад, 15 лет на рынке. Расчёт крыши онлайн.">
+<meta property="og:image" content="img/hero.webp">
+<meta name="theme-color" content="#16171a">
 <link rel="icon" href="img/znak.svg" type="image/svg+xml">
+<link rel="preload" as="image" href="img/hero.webp">
 <link rel="stylesheet" href="css/tokens.css">
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/landing.css">
 <script type="module" src="js/app.js"></script>
+<script type="module" src="js/motion.js"></script>
 </head>
 <body>
-<header class="shapka">
-  <a class="logo" href="https://www.instagram.com/hayrstroy/" aria-label="Хайр-Строй в Instagram">
+<a class="k-soderzhaniyu" href="#raschet">К расчёту крыши</a>
+<header class="shapka" id="shapka">
+  <a class="logo" href="#top" aria-label="Хайр-Строй, наверх">
     <img src="img/znak.svg" alt="" width="40" height="40">
     <span><b>ХАЙР СТРОЙ</b><small>профессионалы в кровле</small></span>
   </a>
-  <a class="wa-mini" id="waMini" href="https://wa.me/79679550202" aria-label="Написать в WhatsApp">
+  <a class="wa-mini" href="https://wa.me/79679550202" target="_blank" rel="noopener" aria-label="Написать в WhatsApp">
     <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ikon-wa"/></svg>
   </a>
 </header>
 
-<main>
-  <section class="vstup">
-    <h1>Сколько стоит крыша на&nbsp;ваш дом?</h1>
-    <p>Посчитайте за минуту. Цена под ключ: материал и работа.</p>
+<main id="top">
+  <section class="geroj" id="geroj">
+    <div class="geroj-media" data-geroj-media>
+      <video data-auto src="video/hero.mp4" poster="img/hero.webp" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
+    </div>
+    <div class="geroj-tekst" data-geroj-tekst>
+      <p class="nadzag">Кровля и фасад · Грозный и Гудермес</p>
+      <h1>Крыша под ключ. Цену узнаете за&nbsp;минуту</h1>
+      <p class="podzag">Хайр-Строй кроет дома в Чечне 15 лет. Введите размер дома и получите расчёт по ценам наших объектов.</p>
+      <a class="knopka-glavnaya" href="#raschet">Посчитать мою крышу</a>
+      <p class="dokaz"><b>3,25 млн м²</b> кровли уже продали</p>
+    </div>
   </section>
 
-  <section class="shag" aria-labelledby="h1s">
-    <h2 id="h1s"><i>1</i> Размер</h2>
-    <div class="vybor" role="radiogroup" aria-label="Что вы знаете">
-      <button type="button" class="knopka-vybor" data-rezhim="dom" aria-pressed="true">Размер дома</button>
-      <button type="button" class="knopka-vybor" data-rezhim="krysha" aria-pressed="false">Площадь крыши</button>
+  <section class="cifry" aria-label="Хайр-Строй в цифрах">
+    <div class="ryad">
+      <p data-r><b data-schet="15">15</b><span>лет на рынке</span></p>
+      <p data-r><b data-schet="3.25" data-drob="2">3,25</b><span>млн м² кровли продали</span></p>
+      <p data-r><b data-schet="2">2</b><span>магазина: Грозный и Гудермес</span></p>
     </div>
+  </section>
 
-    <div id="poDomu">
-      <div class="polya">
-        <label>Длина, м<input id="dlina" inputmode="decimal" autocomplete="off" placeholder="12"></label>
-        <label>Ширина, м<input id="shirina" inputmode="decimal" autocomplete="off" placeholder="10"></label>
+  <section class="blok pochemu">
+    <div class="pochemu-tekst">
+      <p class="nadzag" data-r>Честная цена</p>
+      <h2 data-r>Дешёвая черепица часто выходит дороже</h2>
+      <p data-r>Цена ниже рынка на 30-50 ₽ за м² ещё не выгода. Часто разницу прячут в комплектующих: коньки, ендовы, планки, саморезы. В смете всё равно выходит больше.</p>
+      <p data-r>Мы считаем крышу целиком: материал, комплектующие и работу. Элементы делаем на своём оборудовании, от листа металла до готового изделия.</p>
+    </div>
+    <figure class="pochemu-video" data-r>
+      <video data-auto src="video/ceh.mp4" poster="img/ceh.webp" muted loop playsinline preload="none" aria-label="Изготовление элементов кровли"></video>
+    </figure>
+  </section>
+
+  <section class="blok vygody" aria-labelledby="hvyg">
+    <h2 id="hvyg" data-r>Что вы получаете</h2>
+    <ul class="kartochki">
+      <li data-r><b>Цена сразу</b>Расчёт на этой странице за минуту. Не нужно ждать ответа в директе.</li>
+      <li data-r><b>Видео каждого этапа</b>Дом под контролем, даже если вы далеко. Крыша под ключ от начала до конца.</li>
+      <li data-r><b>Материал вживую</b>Приходите в магазин в Грозном или Гудермесе и посмотрите покрытие своими глазами.</li>
+      <li data-r><b>Рассрочка</b>Можно платить частями. Условия скажет менеджер.</li>
+    </ul>
+  </section>
+
+  <section class="raschet" id="raschet" aria-labelledby="hras">
+    <div class="raschet-vnutri">
+      <p class="nadzag" data-r>Расчёт онлайн</p>
+      <h2 id="hras" class="bolshoj" data-r>Сколько стоит крыша на&nbsp;ваш дом?</h2>
+      <p class="podzag" data-r>Цена под ключ: материал и работа.</p>
+
+      <div class="shag" data-r>
+        <h3><i>1</i> Размер</h3>
+        <div class="vybor" role="radiogroup" aria-label="Что вы знаете">
+          <button type="button" class="knopka-vybor" data-rezhim="dom" aria-pressed="true">Размер дома</button>
+          <button type="button" class="knopka-vybor" data-rezhim="krysha" aria-pressed="false">Площадь крыши</button>
+        </div>
+        <div id="poDomu">
+          <div class="polya">
+            <label>Длина, м<input id="dlina" inputmode="decimal" autocomplete="off" placeholder="12"></label>
+            <label>Ширина, м<input id="shirina" inputmode="decimal" autocomplete="off" placeholder="10"></label>
+          </div>
+          <p class="metka">Форма крыши</p>
+          <div class="vybor tri" id="formy" role="radiogroup" aria-label="Форма крыши"></div>
+        </div>
+        <div id="poKryshe" hidden>
+          <label>Площадь крыши, м²<input id="ploshchad" inputmode="decimal" autocomplete="off" placeholder="200"></label>
+        </div>
+        <p class="podskazka" id="itogM2">Введите размеры: площадь крыши посчитается сама.</p>
       </div>
-      <p class="metka">Форма крыши</p>
-      <div class="vybor tri" id="formy" role="radiogroup" aria-label="Форма крыши"></div>
+
+      <div class="shag" data-r>
+        <h3><i>2</i> Уровень</h3>
+        <div class="urovni" id="urovni" role="radiogroup" aria-label="Уровень кровли"></div>
+      </div>
+
+      <div class="shag" data-r>
+        <h3><i>3</i> Где дом</h3>
+        <label>Село или город<input id="mesto" autocomplete="address-level2" placeholder="Например, Гудермес"></label>
+      </div>
+
+      <div class="itog" id="itog" aria-live="polite">
+        <p class="metka">Примерная цена под ключ</p>
+        <p class="summa" id="summa">Введите размер</p>
+        <p class="podskazka" id="rassrochka"></p>
+        <p class="melko">Расчёт по ценам наших прошлых объектов. Точную цену мастер скажет после замера: она зависит от материала, ендов, водостоков и доставки.</p>
+        <a class="knopka-glavnaya wa" id="waItog" href="https://wa.me/79679550202" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ikon-wa"/></svg><span>Получить точный расчёт</span>
+        </a>
+      </div>
     </div>
-
-    <div id="poKryshe" hidden>
-      <label>Площадь крыши, м²<input id="ploshchad" inputmode="decimal" autocomplete="off" placeholder="200"></label>
-    </div>
-    <p class="podskazka" id="itogM2">Введите размеры: площадь крыши посчитается сама.</p>
   </section>
 
-  <section class="shag" aria-labelledby="h2s">
-    <h2 id="h2s"><i>2</i> Уровень</h2>
-    <div class="urovni" id="urovni" role="radiogroup" aria-label="Уровень кровли"></div>
-  </section>
-
-  <section class="shag" aria-labelledby="h3s">
-    <h2 id="h3s"><i>3</i> Где дом</h2>
-    <label>Село или город<input id="mesto" autocomplete="address-level2" placeholder="Например, Гудермес"></label>
-  </section>
-
-  <section class="itog" id="itog" aria-live="polite">
-    <p class="metka">Примерная цена под ключ</p>
-    <p class="summa" id="summa">Введите размер</p>
-    <p class="podskazka" id="rassrochka"></p>
-    <p class="melko">Расчёт по ценам наших прошлых объектов. Точную цену мастер скажет после замера: она зависит от материала, ендов, водостоков и доставки.</p>
-  </section>
-
-  <section class="obekty" aria-labelledby="hob">
-    <h2 id="hob">Наши крыши и их цена</h2>
+  <section class="blok obekty" aria-labelledby="hob">
+    <p class="nadzag" data-r>Наши объекты</p>
+    <h2 id="hob" data-r>Реальные крыши и их цена</h2>
     <div class="lenta">
-      <figure><img src="img/obekt-435.webp" alt="Дом с крышей 435 м²" loading="lazy" width="353" height="470"><figcaption><b>435 м²</b>525&nbsp;000&nbsp;₽<span>≈ 1&nbsp;200&nbsp;₽ за м²</span></figcaption></figure>
-      <figure><img src="img/obekt-634.webp" alt="Крыша 634 м² сверху" loading="lazy" width="353" height="460"><figcaption><b>634 м²</b>896&nbsp;000&nbsp;₽<span>≈ 1&nbsp;410&nbsp;₽ за м²</span></figcaption></figure>
-      <figure><img src="img/obekt-547.webp" alt="Дом с крышей 547 м²" loading="lazy" width="353" height="460"><figcaption><b>547 м²</b>850&nbsp;000&nbsp;₽<span>≈ 1&nbsp;550&nbsp;₽ за м²</span></figcaption></figure>
-      <figure><img src="img/obekt-1212.webp" alt="Дом с крышей 1212 м²" loading="lazy" width="353" height="460"><figcaption><b>1212 м²</b>2&nbsp;305&nbsp;400&nbsp;₽<span>≈ 1&nbsp;900&nbsp;₽ за м²</span></figcaption></figure>
+      <figure data-r><div class="ramka"><video data-auto src="video/v-435.mp4" poster="img/v-435.webp" muted loop playsinline preload="none" aria-label="Крыша 435 м² с дрона"></video></div><figcaption><b>435 м²</b>525&nbsp;000&nbsp;₽<span>≈ 1&nbsp;200&nbsp;₽ за м², сложная геометрия</span></figcaption></figure>
+      <figure data-r><div class="ramka"><img src="img/obekt-634.webp" alt="Крыша 634 м² сверху" loading="lazy" width="353" height="460"></div><figcaption><b>634 м²</b>896&nbsp;000&nbsp;₽<span>≈ 1&nbsp;410&nbsp;₽ за м²</span></figcaption></figure>
+      <figure data-r><div class="ramka"><video data-auto src="video/v-547.mp4" poster="img/v-547.webp" muted loop playsinline preload="none" aria-label="Крыша 547 м² с дрона"></video></div><figcaption><b>547 м²</b>850&nbsp;000&nbsp;₽<span>≈ 1&nbsp;550&nbsp;₽ за м², под ключ</span></figcaption></figure>
+      <figure data-r><div class="ramka"><video data-auto src="video/v-1212.mp4" poster="img/v-1212.webp" muted loop playsinline preload="none" aria-label="Крыша 1212 м² с дрона"></video></div><figcaption><b>1212 м²</b>2&nbsp;305&nbsp;400&nbsp;₽<span>≈ 1&nbsp;900&nbsp;₽ за м², гарантия 25 лет на цвет</span></figcaption></figure>
     </div>
   </section>
 
-  <section class="o-nas">
-    <ul class="fakty">
-      <li><b>15 лет</b>на рынке</li>
-      <li><b>3,25 млн м²</b>кровли продали</li>
-      <li><b>Видео</b>каждого этапа работы</li>
-    </ul>
-    <h2>Магазины</h2>
+  <section class="kak" aria-labelledby="hkak">
+    <div class="kak-media" data-par>
+      <video data-auto src="video/krysha.mp4" poster="img/krysha.webp" muted loop playsinline preload="none" aria-hidden="true"></video>
+    </div>
+    <div class="kak-tekst">
+      <h2 id="hkak" data-r>Как мы работаем</h2>
+      <ol>
+        <li data-r><b>Расчёт</b>Вы считаете крышу здесь и отправляете заявку в WhatsApp.</li>
+        <li data-r><b>Замер и смета</b>Мастер уточняет размеры и даёт точную цену.</li>
+        <li data-r><b>Монтаж с видеоотчётом</b>Кроем под ключ и присылаем видео каждого этапа.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="blok voprosy" aria-labelledby="hvop">
+    <h2 id="hvop" data-r>Вопросы и ответы</h2>
+    <details data-r><summary>Сколько стоит крыша?</summary><p>Зависит от площади и материала. На наших объектах выходило от 1&nbsp;200 до 1&nbsp;900&nbsp;₽ за м² под ключ. Посчитайте свою крышу выше.</p></details>
+    <details data-r><summary>Почему расчёт примерный?</summary><p>Точную цену меняют ендовы, примыкания, водостоки и доставка. Их мастер видит на замере.</p></details>
+    <details data-r><summary>Есть рассрочка?</summary><p>Да. Условия скажет менеджер в WhatsApp.</p></details>
+    <details data-r><summary>Доставляете материал?</summary><p>Да. Цену и срок доставки до вашего дома скажет менеджер.</p></details>
+    <details data-r><summary>Какая гарантия?</summary><p>Зависит от покрытия. Например, на премиальное покрытие гарантия 25 лет, в том числе на цвет. Срок для вашего материала скажет менеджер.</p></details>
+    <details data-r><summary>Я живу далеко. Как следить за стройкой?</summary><p>Мы присылаем видео каждого этапа, от начала до готовой крыши.</p></details>
+    <details data-r><summary>Где посмотреть материал?</summary><p>В наших магазинах: Грозный, ул. Гайрбекова, 144 и Гудермес, ул. Ростовская, 146.</p></details>
+    <details data-r><summary>Как получить точную смету?</summary><p>Пришлите в WhatsApp проект, размеры или фото дома. Мы сделаем расчёт.</p></details>
+  </section>
+
+  <section class="final" aria-labelledby="hfin">
+    <h2 id="hfin" class="bolshoj" data-r>Узнайте цену своей крыши сегодня</h2>
+    <a class="knopka-glavnaya" href="#raschet" data-r>Посчитать мою крышу</a>
     <ul class="adresa">
-      <li><b>Грозный</b>ул. Гайрбекова, 144</li>
-      <li><b>Гудермес</b>ул. Ростовская, 146</li>
+      <li data-r><b>Грозный</b>ул. Гайрбекова, 144</li>
+      <li data-r><b>Гудермес</b>ул. Ростовская, 146</li>
     </ul>
-    <p class="melko" id="versiya"></p>
   </section>
 </main>
 
-<div class="niz">
+<footer class="podval">
+  <a href="https://www.instagram.com/hayrstroy/" target="_blank" rel="noopener">Instagram @hayrstroy</a>
+  <span id="versiya"></span>
+</footer>
+
+<div class="niz" id="niz">
   <a class="glavnaya" id="waGlavnaya" href="https://wa.me/79679550202" target="_blank" rel="noopener">
     <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ikon-wa"/></svg>
     <span id="waTekst">Получить точный расчёт</span>

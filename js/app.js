@@ -55,6 +55,7 @@ function obnovi() {
     $('rassrochka').textContent = '';
     $('itog').classList.remove('gotovo');
     $('waGlavnaya').href = waBase;
+    $('waItog').href = waBase;
     $('waTekst').textContent = 'Получить точный расчёт';
     return;
   }
@@ -67,6 +68,7 @@ function obnovi() {
     forma: sost.forma, mesto: $('mesto').value,
   });
   $('waGlavnaya').href = ssylka(tekst);
+  $('waItog').href = ssylka(tekst);
   $('waTekst').textContent = 'Точный расчёт в WhatsApp';
 }
 
