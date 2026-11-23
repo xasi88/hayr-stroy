@@ -1,11 +1,16 @@
 // Движение, привязанное к прокрутке: быстро листаете, быстро появляется.
 // Двигаем только transform и opacity. «Меньше движения»: только прозрачность.
+// Быстро: места элементов меряем один раз (и когда страница меняет высоту),
+// в кадре прокрутки только считаем и пишем, без чтения раскладки.
 const tikho = matchMedia('(prefers-reduced-motion: reduce)').matches;
-const vse = [...document.querySelectorAll('[data-r]')];
-const schet = [...document.querySelectorAll('[data-schet]')];
-const par = [...document.querySelectorAll('[data-par]')];
+const vse = [...document.querySelectorAll('[data-r]')].map((el) => ({ el, y: 0, h: 0, p: -1 }));
+const schet = [...document.querySelectorAll('[data-schet]')].map((el) => ({
+  el, y: 0, h: 0, t: '', cel: parseFloat(el.dataset.schet), drob: +(el.dataset.drob || 0),
+}));
+const par = [...document.querySelectorAll('[data-par]')].map((el) => ({ el, y: 0, h: 0 }));
 const gMedia = document.querySelector('[data-geroj-media]');
 const gTekst = document.querySelector('[data-geroj-tekst]');
+const shapka = document.getElementById('shapka');
 const niz = document.getElementById('niz');
 const geroj = document.getElementById('geroj');
 
@@ -13,41 +18,54 @@ const zazhat = (x) => Math.min(1, Math.max(0, x));
 // Плавный выход, как cubic-bezier(0.22, 1, 0.36, 1)
 const vyhod = (t) => 1 - Math.pow(1 - t, 4);
 
-document.documentElement.classList.add('dvizh');
+// Место от верха страницы. offsetTop не зависит от transform: нет дрожи.
+function verh(el) {
+  let y = 0;
+  for (let e = el; e; e = e.offsetParent) y += e.offsetTop;
+  return y;
+}
 
-const shapka = document.getElementById('shapka');
+let vh = innerHeight;
+function izmer() {
+  vh = innerHeight;
+  for (const s of [...vse, ...schet, ...par]) {
+    s.y = verh(s.el);
+    s.h = s.el.offsetHeight;
+  }
+  kadr();
+}
 
+let bylTemn = null;
 function kadr() {
-  const vh = innerHeight;
-  if (shapka) shapka.classList.toggle('temnaya', scrollY > 40);
+  const y = scrollY;
+  const temn = y > 40;
+  if (shapka && temn !== bylTemn) { shapka.classList.toggle('temnaya', temn); bylTemn = temn; }
 
-  for (const el of vse) {
-    const r = el.getBoundingClientRect();
-    const p = vyhod(zazhat((vh - r.top) / (vh * 0.3)));
-    el.style.opacity = p.toFixed(3);
-    el.style.transform = tikho ? '' : 'translate3d(0,' + ((1 - p) * 40).toFixed(1) + 'px,0)';
+  for (const s of vse) {
+    const p = Math.round(vyhod(zazhat((vh - (s.y - y)) / (vh * 0.3))) * 100) / 100;
+    if (p === s.p) continue;
+    s.p = p;
+    s.el.style.opacity = p;
+    if (!tikho) s.el.style.transform = p === 1 ? '' : 'translate3d(0,' + ((1 - p) * 40).toFixed(1) + 'px,0)';
   }
 
-  for (const el of schet) {
-    const r = el.getBoundingClientRect();
-    const p = vyhod(zazhat((vh - r.top) / (vh * 0.5)));
-    const cel = parseFloat(el.dataset.schet);
-    const drob = +(el.dataset.drob || 0);
-    el.textContent = (tikho ? cel : cel * p).toFixed(drob).replace('.', ',');
+  for (const s of schet) {
+    const p = tikho ? 1 : vyhod(zazhat((vh - (s.y - y)) / (vh * 0.5)));
+    const t = (s.cel * p).toFixed(s.drob).replace('.', ',');
+    if (t !== s.t) { s.el.textContent = t; s.t = t; }
   }
 
-  if (!tikho) {
-    for (const el of par) {
-      const r = el.getBoundingClientRect();
-      const sdvig = (r.top + r.height / 2 - vh / 2) * -0.12;
-      el.firstElementChild.style.transform = 'translate3d(0,' + sdvig.toFixed(1) + 'px,0) scale(1.15)';
-    }
-    if (gMedia && gTekst) {
-      const p = zazhat(scrollY / vh);
-      gMedia.style.transform = 'scale(' + (1 + p * 0.12).toFixed(3) + ')';
-      gTekst.style.transform = 'translate3d(0,' + (p * -60).toFixed(1) + 'px,0)';
-      gTekst.style.opacity = (1 - p * 1.4).toFixed(3);
-    }
+  if (tikho) return;
+  for (const s of par) {
+    if (s.y - y > vh || s.y + s.h - y < 0) continue;
+    const sdvig = (s.y + s.h / 2 - y - vh / 2) * -0.12;
+    s.el.firstElementChild.style.transform = 'translate3d(0,' + sdvig.toFixed(1) + 'px,0) scale(1.15)';
+  }
+  if (gMedia && gTekst && y <= vh * 1.2) {
+    const p = zazhat(y / vh);
+    gMedia.style.transform = p ? 'scale(' + (1 + p * 0.12).toFixed(3) + ')' : '';
+    gTekst.style.transform = p ? 'translate3d(0,' + (p * -60).toFixed(1) + 'px,0)' : '';
+    gTekst.style.opacity = p ? Math.max(0, 1 - p * 1.4).toFixed(3) : '';
   }
 }
 
@@ -58,31 +76,54 @@ const pozhe = () => {
   requestAnimationFrame(() => { zhdu = false; kadr(); });
 };
 addEventListener('scroll', pozhe, { passive: true });
-addEventListener('resize', pozhe);
-kadr();
+// Страница поменяла высоту (вопрос открыт, загрузилось фото, повернули телефон): перемерить
+let zhduIzmer = false;
+new ResizeObserver(() => {
+  if (zhduIzmer) return;
+  zhduIzmer = true;
+  requestAnimationFrame(() => { zhduIzmer = false; izmer(); });
+}).observe(document.body);
+addEventListener('resize', () => requestAnimationFrame(izmer));
+izmer();
 
-// Видео играет только на экране: меньше нагрузки на телефон.
-// Проверка по прокрутке страницы и ленты объектов, раз в 300 мс.
+// Видео играет только на экране и только при открытой вкладке: меньше нагрузки на телефон
 const video = [...document.querySelectorAll('video[data-auto]')];
+const vidno = new Map();
 function videoNaEkrane() {
-  const vh = innerHeight;
-  const vw = innerWidth;
   for (const v of video) {
-    const r = v.getBoundingClientRect();
-    const vidno = r.bottom > -100 && r.top < vh + 100 && r.right > 0 && r.left < vw;
-    if (vidno && v.paused) {
+    const nado = vidno.get(v) && !document.hidden;
+    if (nado && v.paused) {
       if (v.preload === 'none') v.preload = 'auto';
       v.play().catch(() => {});
-    } else if (!vidno && !v.paused) {
+    } else if (!nado && !v.paused) {
       v.pause();
     }
   }
 }
-setInterval(videoNaEkrane, 300);
-videoNaEkrane();
+const nablyud = new IntersectionObserver((spisok) => {
+  for (const z of spisok) vidno.set(z.target, z.isIntersecting);
+  videoNaEkrane();
+}, { rootMargin: '100px' });
+video.forEach((v) => nablyud.observe(v));
+// Обложки дальних видео грузим за экран до показа: первый экран грузится первым
+const blizko = new IntersectionObserver((spisok) => {
+  for (const z of spisok) {
+    if (!z.isIntersecting) continue;
+    const v = z.target;
+    if (v.dataset.poster) { v.poster = v.dataset.poster; delete v.dataset.poster; }
+    blizko.unobserve(v);
+  }
+}, { rootMargin: '900px 900px' });
+video.forEach((v) => v.dataset.poster && blizko.observe(v));
+document.addEventListener('visibilitychange', videoNaEkrane);
+// Запасная проверка раз в секунду: если телефон не дал включить видео сразу
+setInterval(videoNaEkrane, 1000);
 
 // Нижняя кнопка появляется после первого экрана: на первом экране одна главная кнопка
 if (niz && geroj) {
-  new IntersectionObserver(([z]) => niz.classList.toggle('vidna', !z.isIntersecting),
-    { threshold: 0.15 }).observe(geroj);
+  new IntersectionObserver(([z]) => {
+    const vidna = !z.isIntersecting;
+    niz.classList.toggle('vidna', vidna);
+    niz.inert = !vidna;
+  }, { threshold: 0.15 }).observe(geroj);
 }

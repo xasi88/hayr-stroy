@@ -4,7 +4,6 @@ body {
   font: var(--r-tekst)/1.45 var(--shrift);
   color: var(--grafit);
   background: var(--fon);
-  padding-bottom: calc(96px + env(safe-area-inset-bottom));
 }
 main { max-width: var(--shirina); margin: 0 auto; padding: 0 var(--otstup); }
 img { display: block; max-width: 100%; height: auto; }
@@ -24,14 +23,7 @@ svg { width: 24px; height: 24px; flex: none; }
   border-radius: 50%; background: var(--wa); color: var(--belyj);
 }
 
-.vstup { padding: 28px 0 8px; }
 h1 { font-size: var(--r-h1); line-height: 1.12; letter-spacing: -0.01em; }
-.vstup p { margin-top: 10px; color: var(--seryj); }
-h2 { font-size: var(--r-h2); display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
-h2 i {
-  font-style: normal; display: grid; place-items: center; width: 30px; height: 30px;
-  border-radius: 50%; background: var(--krasnyj); color: var(--belyj); font-size: 0.95rem;
-}
 
 .shag, .itog {
   background: var(--belyj); border-radius: var(--radius); padding: 18px var(--otstup);
@@ -76,7 +68,6 @@ input:focus { outline: none; border-color: var(--grafit); }
 .itog.gotovo .summa { color: var(--belyj); }
 .itog:not(.gotovo) .summa { color: #8d8f97; }
 
-.obekty { margin-top: 28px; }
 .lenta {
   display: grid; grid-auto-flow: column; grid-auto-columns: 62%; gap: 10px;
   overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 6px;
@@ -88,10 +79,6 @@ input:focus { outline: none; border-color: var(--grafit); }
 .lenta figcaption b { display: block; color: var(--krasnyj); }
 .lenta figcaption span { display: block; font-weight: 500; font-size: var(--r-melko); color: var(--seryj); }
 
-.o-nas { margin: 28px 0 12px; }
-.fakty { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 24px; }
-.fakty li { background: var(--belyj); border-radius: 12px; padding: 12px 10px; font-size: var(--r-melko); color: var(--seryj); box-shadow: var(--ten); }
-.fakty b { display: block; font-size: 1.05rem; color: var(--grafit); }
 .adresa { list-style: none; padding: 0; display: grid; gap: 8px; }
 .adresa li { background: var(--belyj); border-radius: 12px; padding: 12px 14px; box-shadow: var(--ten); }
 .adresa b { display: block; }

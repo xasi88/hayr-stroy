@@ -41,17 +41,22 @@ function obnovi() {
   const poDomu = sost.rezhim === 'dom';
   const m2 = poDomu ? ploshchad($('dlina').value, $('shirina').value, sost.forma) : chislo($('ploshchad').value);
   const r = raschet(m2, sost.uroven);
-
-  if (poDomu) {
-    $('itogM2').textContent = m2 ? 'Площадь крыши: около ' + m2 + ' м² (со свесами и скатами).'
-      : 'Введите размеры: площадь крыши посчитается сама.';
-  } else {
-    $('itogM2').textContent = 'Площадь есть в проекте дома. Нет проекта: выберите «Размер дома».';
-  }
+  const polya = poDomu ? [$('dlina'), $('shirina')] : [$('ploshchad')];
+  const vvedeno = polya.some((p) => p.value.trim());
+  const vse = polya.every((p) => p.value.trim());
+  // Поле с ошибкой подсвечено, подсказка говорит, что не так
+  polya.forEach((p) => p.toggleAttribute('aria-invalid', !!p.value.trim() && !chislo(p.value)));
+  let podskazka;
+  if (vse && !m2) podskazka = 'Нужно число больше нуля, например 12 или 9,5.';
+  else if (m2 && !r) podskazka = 'Площадь крыши около ' + m2 + ' м². Считаем крыши от 20 до 5000 м².';
+  else if (poDomu) podskazka = m2 ? 'Площадь крыши: около ' + m2 + ' м² (со свесами и скатами).'
+    : 'Введите длину и ширину: площадь крыши посчитается сама.';
+  else podskazka = r ? 'Площадь крыши: ' + m2 + ' м².' : 'Площадь есть в проекте дома. Нет проекта: выберите «Размер дома».';
+  $('itogM2').textContent = podskazka;
 
   const waBase = 'https://wa.me/' + WHATSAPP;
   if (!r) {
-    $('summa').textContent = m2 ? 'Проверьте размер' : 'Введите размер';
+    $('summa').textContent = vvedeno && vse ? 'Проверьте размер' : 'Введите размер';
     $('rassrochka').textContent = '';
     $('itog').classList.remove('gotovo');
     $('waGlavnaya').href = waBase;

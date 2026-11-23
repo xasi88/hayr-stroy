@@ -8,10 +8,12 @@
 <meta name="description" content="Кровля под ключ от Хайр-Строй. Посчитайте цену крыши за минуту по ценам наших объектов. Грозный и Гудермес.">
 <meta property="og:title" content="Крыша под ключ. Цену узнаете за минуту">
 <meta property="og:description" content="Хайр-Строй: кровля и фасад, 15 лет на рынке. Расчёт крыши онлайн.">
-<meta property="og:image" content="img/hero.webp">
+<meta property="og:image" content="https://xasi88.github.io/hayr-stroy/img/hero.webp">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
 <meta name="theme-color" content="#16171a">
 <link rel="icon" href="img/znak.svg" type="image/svg+xml">
-<link rel="preload" as="image" href="img/hero.webp">
+<link rel="preload" as="image" href="img/hero.webp" fetchpriority="high">
 <link rel="stylesheet" href="css/tokens.css">
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/landing.css">
@@ -60,7 +62,7 @@
       <p data-r>Мы считаем крышу целиком: материал, комплектующие и работу. Элементы делаем на своём оборудовании, от листа металла до готового изделия.</p>
     </div>
     <figure class="pochemu-video" data-r>
-      <video data-auto src="video/ceh.mp4" poster="img/ceh.webp" muted loop playsinline preload="none" aria-label="Изготовление элементов кровли"></video>
+      <video data-auto src="video/ceh.mp4" data-poster="img/ceh.webp" muted loop playsinline preload="none" aria-label="Изготовление элементов кровли"></video>
     </figure>
   </section>
 
@@ -82,7 +84,7 @@
 
       <div class="shag" data-r>
         <h3><i>1</i> Размер</h3>
-        <div class="vybor" role="radiogroup" aria-label="Что вы знаете">
+        <div class="vybor" role="group" aria-label="Что вы знаете">
           <button type="button" class="knopka-vybor" data-rezhim="dom" aria-pressed="true">Размер дома</button>
           <button type="button" class="knopka-vybor" data-rezhim="krysha" aria-pressed="false">Площадь крыши</button>
         </div>
@@ -92,7 +94,7 @@
             <label>Ширина, м<input id="shirina" inputmode="decimal" autocomplete="off" placeholder="10"></label>
           </div>
           <p class="metka">Форма крыши</p>
-          <div class="vybor tri" id="formy" role="radiogroup" aria-label="Форма крыши"></div>
+          <div class="vybor tri" id="formy" role="group" aria-label="Форма крыши"></div>
         </div>
         <div id="poKryshe" hidden>
           <label>Площадь крыши, м²<input id="ploshchad" inputmode="decimal" autocomplete="off" placeholder="200"></label>
@@ -102,7 +104,7 @@
 
       <div class="shag" data-r>
         <h3><i>2</i> Уровень</h3>
-        <div class="urovni" id="urovni" role="radiogroup" aria-label="Уровень кровли"></div>
+        <div class="urovni" id="urovni" role="group" aria-label="Уровень кровли"></div>
       </div>
 
       <div class="shag" data-r>
@@ -126,16 +128,16 @@
     <p class="nadzag" data-r>Наши объекты</p>
     <h2 id="hob" data-r>Реальные крыши и их цена</h2>
     <div class="lenta">
-      <figure data-r><div class="ramka"><video data-auto src="video/v-435.mp4" poster="img/v-435.webp" muted loop playsinline preload="none" aria-label="Крыша 435 м² с дрона"></video></div><figcaption><b>435 м²</b>525&nbsp;000&nbsp;₽<span>≈ 1&nbsp;200&nbsp;₽ за м², сложная геометрия</span></figcaption></figure>
+      <figure data-r><div class="ramka"><video data-auto src="video/v-435.mp4" data-poster="img/v-435.webp" muted loop playsinline preload="none" aria-label="Крыша 435 м² с дрона"></video></div><figcaption><b>435 м²</b>525&nbsp;000&nbsp;₽<span>≈ 1&nbsp;200&nbsp;₽ за м², сложная геометрия</span></figcaption></figure>
       <figure data-r><div class="ramka"><img src="img/obekt-634.webp" alt="Крыша 634 м² сверху" loading="lazy" width="353" height="460"></div><figcaption><b>634 м²</b>896&nbsp;000&nbsp;₽<span>≈ 1&nbsp;410&nbsp;₽ за м²</span></figcaption></figure>
-      <figure data-r><div class="ramka"><video data-auto src="video/v-547.mp4" poster="img/v-547.webp" muted loop playsinline preload="none" aria-label="Крыша 547 м² с дрона"></video></div><figcaption><b>547 м²</b>850&nbsp;000&nbsp;₽<span>≈ 1&nbsp;550&nbsp;₽ за м², под ключ</span></figcaption></figure>
-      <figure data-r><div class="ramka"><video data-auto src="video/v-1212.mp4" poster="img/v-1212.webp" muted loop playsinline preload="none" aria-label="Крыша 1212 м² с дрона"></video></div><figcaption><b>1212 м²</b>2&nbsp;305&nbsp;400&nbsp;₽<span>≈ 1&nbsp;900&nbsp;₽ за м², гарантия 25 лет на цвет</span></figcaption></figure>
+      <figure data-r><div class="ramka"><video data-auto src="video/v-547.mp4" data-poster="img/v-547.webp" muted loop playsinline preload="none" aria-label="Крыша 547 м² с дрона"></video></div><figcaption><b>547 м²</b>850&nbsp;000&nbsp;₽<span>≈ 1&nbsp;550&nbsp;₽ за м², под ключ</span></figcaption></figure>
+      <figure data-r><div class="ramka"><video data-auto src="video/v-1212.mp4" data-poster="img/v-1212.webp" muted loop playsinline preload="none" aria-label="Крыша 1212 м² с дрона"></video></div><figcaption><b>1212 м²</b>2&nbsp;305&nbsp;400&nbsp;₽<span>≈ 1&nbsp;900&nbsp;₽ за м², гарантия 25 лет на цвет</span></figcaption></figure>
     </div>
   </section>
 
   <section class="kak" aria-labelledby="hkak">
     <div class="kak-media" data-par>
-      <video data-auto src="video/krysha.mp4" poster="img/krysha.webp" muted loop playsinline preload="none" aria-hidden="true"></video>
+      <video data-auto src="video/krysha.mp4" data-poster="img/krysha.webp" muted loop playsinline preload="none" aria-hidden="true"></video>
     </div>
     <div class="kak-tekst">
       <h2 id="hkak" data-r>Как мы работаем</h2>
