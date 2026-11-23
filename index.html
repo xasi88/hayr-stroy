@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Сколько стоит крыша · Хайр-Строй</title>
+<meta name="description" content="Посчитайте кровлю под ключ за минуту. Хайр-Строй, Грозный и Гудермес.">
+<meta name="theme-color" content="#1c1d21">
+<link rel="icon" href="img/znak.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/style.css">
+<script type="module" src="js/app.js"></script>
+</head>
+<body>
+<header class="shapka">
+  <a class="logo" href="https://www.instagram.com/hayrstroy/" aria-label="Хайр-Строй в Instagram">
+    <img src="img/znak.svg" alt="" width="40" height="40">
+    <span><b>ХАЙР СТРОЙ</b><small>профессионалы в кровле</small></span>
+  </a>
+  <a class="wa-mini" id="waMini" href="https://wa.me/79679550202" aria-label="Написать в WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ikon-wa"/></svg>
+  </a>
+</header>
+
+<main>
+  <section class="vstup">
+    <h1>Сколько стоит крыша на&nbsp;ваш дом?</h1>
+    <p>Посчитайте за минуту. Цена под ключ: материал и работа.</p>
+  </section>
+
+  <section class="shag" aria-labelledby="h1s">
+    <h2 id="h1s"><i>1</i> Размер</h2>
+    <div class="vybor" role="radiogroup" aria-label="Что вы знаете">
+      <button type="button" class="knopka-vybor" data-rezhim="dom" aria-pressed="true">Размер дома</button>
+      <button type="button" class="knopka-vybor" data-rezhim="krysha" aria-pressed="false">Площадь крыши</button>
+    </div>
+
+    <div id="poDomu">
+      <div class="polya">
+        <label>Длина, м<input id="dlina" inputmode="decimal" autocomplete="off" placeholder="12"></label>
+        <label>Ширина, м<input id="shirina" inputmode="decimal" autocomplete="off" placeholder="10"></label>
+      </div>
+      <p class="metka">Форма крыши</p>
+      <div class="vybor tri" id="formy" role="radiogroup" aria-label="Форма крыши"></div>
+    </div>
+
+    <div id="poKryshe" hidden>
+      <label>Площадь крыши, м²<input id="ploshchad" inputmode="decimal" autocomplete="off" placeholder="200"></label>
+    </div>
+    <p class="podskazka" id="itogM2">Введите размеры: площадь крыши посчитается сама.</p>
+  </section>
+
+  <section class="shag" aria-labelledby="h2s">
+    <h2 id="h2s"><i>2</i> Уровень</h2>
+    <div class="urovni" id="urovni" role="radiogroup" aria-label="Уровень кровли"></div>
+  </section>
+
+  <section class="shag" aria-labelledby="h3s">
+    <h2 id="h3s"><i>3</i> Где дом</h2>
+    <label>Село или город<input id="mesto" autocomplete="address-level2" placeholder="Например, Гудермес"></label>
+  </section>
+
+  <section class="itog" id="itog" aria-live="polite">
+    <p class="metka">Примерная цена под ключ</p>
+    <p class="summa" id="summa">Введите размер</p>
+    <p class="podskazka" id="rassrochka"></p>
+    <p class="melko">Расчёт по ценам наших прошлых объектов. Точную цену мастер скажет после замера: она зависит от материала, ендов, водостоков и доставки.</p>
+  </section>
+
+  <section class="obekty" aria-labelledby="hob">
+    <h2 id="hob">Наши крыши и их цена</h2>
+    <div class="lenta">
+      <figure><img src="img/obekt-435.webp" alt="Дом с крышей 435 м²" loading="lazy" width="353" height="470"><figcaption><b>435 м²</b>525&nbsp;000&nbsp;₽<span>≈ 1&nbsp;200&nbsp;₽ за м²</span></figcaption></figure>
+      <figure><img src="img/obekt-634.webp" alt="Крыша 634 м² сверху" loading="lazy" width="353" height="460"><figcaption><b>634 м²</b>896&nbsp;000&nbsp;₽<span>≈ 1&nbsp;410&nbsp;₽ за м²</span></figcaption></figure>
+      <figure><img src="img/obekt-547.webp" alt="Дом с крышей 547 м²" loading="lazy" width="353" height="460"><figcaption><b>547 м²</b>850&nbsp;000&nbsp;₽<span>≈ 1&nbsp;550&nbsp;₽ за м²</span></figcaption></figure>
+      <figure><img src="img/obekt-1212.webp" alt="Дом с крышей 1212 м²" loading="lazy" width="353" height="460"><figcaption><b>1212 м²</b>2&nbsp;305&nbsp;400&nbsp;₽<span>≈ 1&nbsp;900&nbsp;₽ за м²</span></figcaption></figure>
+    </div>
+  </section>
+
+  <section class="o-nas">
+    <ul class="fakty">
+      <li><b>15 лет</b>на рынке</li>
+      <li><b>3,25 млн м²</b>кровли продали</li>
+      <li><b>Видео</b>каждого этапа работы</li>
+    </ul>
+    <h2>Магазины</h2>
+    <ul class="adresa">
+      <li><b>Грозный</b>ул. Гайрбекова, 144</li>
+      <li><b>Гудермес</b>ул. Ростовская, 146</li>
+    </ul>
+    <p class="melko" id="versiya"></p>
+  </section>
+</main>
+
+<div class="niz">
+  <a class="glavnaya" id="waGlavnaya" href="https://wa.me/79679550202" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ikon-wa"/></svg>
+    <span id="waTekst">Получить точный расчёт</span>
+  </a>
+</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="ikon-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3Z"/></symbol>
+</svg>
+</body>
+</html>

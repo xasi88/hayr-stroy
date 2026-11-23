@@ -1,0 +1,24 @@
+/* Все цвета, шрифты и размеры. Брендбук: docs/Брендбук Хайр-Строй.md */
+:root {
+  --krasnyj: #d9231d;        /* красный с логотипа: главное действие */
+  --krasnyj-temnee: #b51b16;
+  --grafit: #1c1d21;         /* тёмный с логотипа: текст и шапка */
+  --seryj: #5d6068;
+  --liniya: #dedbd6;
+  --fon: #f5f3f0;
+  --belyj: #ffffff;
+  --wa: #1fa855;             /* только знак WhatsApp */
+
+  --shrift: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --r-tekst: 1rem;
+  --r-melko: 0.875rem;
+  --r-h1: clamp(1.75rem, 7vw, 2.5rem);
+  --r-h2: 1.25rem;
+  --r-summa: clamp(1.6rem, 7.5vw, 2.25rem);
+
+  --otstup: 16px;
+  --radius: 14px;
+  --palec: 48px;             /* кнопки и поля не ниже 44 точек */
+  --shirina: 560px;
+  --ten: 0 6px 24px rgb(28 29 33 / 0.08);
+}
